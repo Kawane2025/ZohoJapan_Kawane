@@ -2,29 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-.section { scroll-margin-top: 88px; }
-.btn-brand { @apply inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zoho-navy text-white hover:brightness-110 transition shadow-glow; }
-.badge { @apply inline-flex items-center text-xs px-2 py-1 rounded-full bg-zoho-blue/10 text-zoho-blue; }
-.card { @apply border rounded-2xl shadow-sm bg-white; }
-.ribbon { @apply rounded-t-2xl bg-zoho-navy text-white px-4 py-2 inline-flex items-center gap-2; }
-body{font-family:'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+.section {
+  scroll-margin-top: 88px;
+}
+
+.btn-brand {
+  @apply inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zoho-navy text-white hover:brightness-110 transition shadow-glow;
+}
+
+.badge {
+  @apply inline-flex items-center text-xs px-2 py-1 rounded-full bg-zoho-blue/10 text-zoho-blue;
+}
+
+.card {
+  @apply border rounded-2xl shadow-sm bg-white;
+}
+
+.ribbon {
+  @apply rounded-t-2xl bg-zoho-navy text-white px-4 py-2 inline-flex items-center gap-2;
+}
+
+body {
+  font-family: 'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
 /* Desktop background for Events section */
 @media (min-width: 1024px) {
   .events-bg {
     position: relative;
-    background-image: url('/images/events-bg.png'); /* place file in public/images/ */
+    background-image: url('/images/events-bg.png');
+    /* place file in public/images/ */
     background-repeat: no-repeat;
     background-position: center;
-background-size: 100% auto/* s     /* fill the section */
+    background-size: cover
+      /* s     /* fill the section */
   }
+
   /* darken image so cards pop */
   .events-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);  /* ← make darker by increasing to 0.45/0.55 */
+    background: rgba(0, 0, 0, 0.35);
+    /* ← make darker by increasing to 0.45/0.55 */
     z-index: 0;
   }
+
   /* keep content above overlay */
   .events-bg > * {
     position: relative;
