@@ -6,7 +6,15 @@ export default function EventsUnified() {
   const { t, language } = useLang();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-
+function linkify(text) {
+  if (!text) return "";
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(
+    urlRegex,
+    (url) =>
+      `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">${url}</a>`
+  );
+}
   const fetchEvents = async () => {
     setLoading(true);
     try {
@@ -110,14 +118,17 @@ export default function EventsUnified() {
                   </div>
                 )}
 
-                {/* Body -> flex column; description flex-1; footer aligned */}
-                <div className="p-5 flex flex-col h-full">
-                  <p className="text-gray-700 whitespace-pre-line flex-1">
-                    {language === "ja"
-                      ? ev.description_ja || ev.description_en
-                      : ev.description_en || ev.description_ja}
-                  </p>
-
+<div className="p-5 flex flex-col h-full">
+  <div
+    className="text-gray-700 whitespace-pre-line flex-1"
+    dangerouslySetInnerHTML={{
+      __html: linkify(
+        language === "ja"
+          ? ev.description_ja || ev.description_en
+          : ev.description_en || ev.description_ja
+      ),
+    }}
+  />
                   {/* Footer row aligned & pinned to bottom */}
                   <div className="mt-4 pt-1 flex items-center justify-between">
                     <span className="text-sm text-gray-600">

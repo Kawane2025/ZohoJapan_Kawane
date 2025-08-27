@@ -27,31 +27,36 @@ body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Desktop background for Events section */
+/* =========================
+   Events background (desktop)
+   ========================= */
 
-  .events-bg {
-    position: relative;
-    background-image: url("/images/Bridge-of-Dreams.webp");
-    /* place file in public/images/ */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    /* s     /* fill the section */
-
-
-  /* darken image so cards pop */
-  .events-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    /* ← make darker by increasing to 0.45/0.55 */
-    z-index: 0;
-  }
-
-  /* keep content above overlay */
-  .events-bg > * {
-    position: relative;
-    z-index: 1;
-  }
+.events-bg {
+  position: relative;
+  background-image: url("/images/Bridge-of-Dreams.webp"); /* file should be in public/images */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* fill the section */
 }
+
+/* dark overlay so content pops */
+.events-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* increase to 0.45/0.55 if you want darker */
+  z-index: 0;
+}
+
+/* keep section content above overlay */
+.events-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* (optional) disable heavy bg on small screens
+@media (max-width: 1024px) {
+  .events-bg {
+    background-image: none;
+  }
+} */
