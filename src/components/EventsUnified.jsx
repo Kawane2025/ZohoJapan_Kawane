@@ -6,15 +6,15 @@ export default function EventsUnified() {
   const { t, language } = useLang();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-function linkify(text) {
-  if (!text) return "";
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  return text.replace(
-    urlRegex,
-    (url) =>
-      `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">${url}</a>`
-  );
-}
+  function linkify(text) {
+    if (!text) return "";
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(
+      urlRegex,
+      (url) =>
+        `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">${url}</a>`
+    );
+  }
   const fetchEvents = async () => {
     setLoading(true);
     try {
@@ -33,6 +33,16 @@ function linkify(text) {
       setLoading(false);
     }
   };
+useEffect(()=>{(async()=>{
+  try {
+    const all = await getEvents();
+    setList(Array.isArray(all) ? all : []);
+  } finally {
+    setLoading(false);
+    // ✅ tell the page that events are done rendering
+    window.dispatchEvent(new Event("events:loaded"));
+  }
+})()},[]);
 
   useEffect(() => {
     fetchEvents();
@@ -67,10 +77,9 @@ function linkify(text) {
         {/* <h3 className="text-3xl font-extrabold text-center mb-6 text-red-500">
           {t("events_title")}
         </h3> */}
-<h3 className="text-5xl font-extrabold text-center mb-6 text-white drop-shadow">
-  {t('events_title')}
-</h3>
-
+        <h3 className="text-5xl font-extrabold text-center mb-6 text-white drop-shadow">
+          {t("events_title")}
+        </h3>
 
         {loading ? (
           <div className="flex items-center justify-center py-16">
@@ -118,17 +127,17 @@ function linkify(text) {
                   </div>
                 )}
 
-<div className="p-5 flex flex-col h-full">
-  <div
-    className="text-gray-700 whitespace-pre-line flex-1"
-    dangerouslySetInnerHTML={{
-      __html: linkify(
-        language === "ja"
-          ? ev.description_ja || ev.description_en
-          : ev.description_en || ev.description_ja
-      ),
-    }}
-  />
+                <div className="p-5 flex flex-col h-full">
+                  <div
+                    className="text-gray-700 whitespace-pre-line flex-1"
+                    dangerouslySetInnerHTML={{
+                      __html: linkify(
+                        language === "ja"
+                          ? ev.description_ja || ev.description_en
+                          : ev.description_en || ev.description_ja
+                      ),
+                    }}
+                  />
                   {/* Footer row aligned & pinned to bottom */}
                   <div className="mt-4 pt-1 flex items-center justify-between">
                     <span className="text-sm text-gray-600">
