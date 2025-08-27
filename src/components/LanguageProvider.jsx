@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 const content = {
-  hero_title: { ja: "ゾーホージャパン川根本", en: "Zoho Japan Kawane" },
+  hero_title: { ja: "ゾーホージャパン川根本町オフィス", en: "Zoho Japan Kawane Office" },
   hero_desc: {
     ja: "コミュニティイベント、ワークショップ、地域連携のご案内。",
     en: "Join our community events, workshops, and local initiatives.",
@@ -21,15 +21,17 @@ const content = {
     ja: "下記フォームにご入力ください。",
     en: "Fill out the form to secure your spot.",
   },
+  reg_heading:{ ja: "登録フォーム", en: "Registration Form" },
   name: { ja: "お名前", en: "Name" },
-  email: { ja: "メール", en: "Email" },
+  email: { ja: "メールアドレス", en: "Email Address" },
+    number: { ja: "電話番号", en: "Phone number" },
   select_event: { ja: "イベントを選択", en: "Select an event" },
   select_date: { ja: "希望日を選択", en: "Select preferred date" },
   participants: { ja: "参加人数", en: "Participants" },
   notes: { ja: "備考", en: "Notes" },
   submitting: { ja: "送信中…", en: "Submitting…" },
   submit: { ja: "送信", en: "Submit" },
-
+ declaration : {ja: "個人情報の取り扱いに同意します。", en: "I consent to handling of my personal information." },
   thanks_title: {
     ja: "お申込みありがとうございました！",
     en: "Thank you for your registration!",

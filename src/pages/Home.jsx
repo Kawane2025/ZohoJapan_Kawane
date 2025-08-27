@@ -31,7 +31,6 @@ export default function Home() {
         <main className="flex-1">
           {/* Hero removed */}
 
-          {/* ✅ Desktop-only background behind Events */}
           <section id="events" className="events-bg">
             <div className="py-8 lg:py-16">
               <EventsUnified />

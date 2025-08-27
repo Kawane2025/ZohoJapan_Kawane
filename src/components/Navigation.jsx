@@ -22,7 +22,7 @@ export default function Navigation() {
             className="flex items-center gap-2 font-semibold text-zoho-navy"
           >
             <img src={images.logo} alt="Zoho" className="h-7 w-auto" />
-            <span>ゾーホージャパン川根本</span>
+            <span>ゾーホージャパン川根本町オフィス</span>
           </a>
           <nav className="hidden md:flex items-center gap-1">
             <NavLink href="#events">{t("nav_events")}</NavLink>

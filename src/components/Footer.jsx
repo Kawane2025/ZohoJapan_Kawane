@@ -16,7 +16,7 @@ export default function Footer() {
             <img src={images.logo} alt="Zoho" className="h-8 w-auto mt-1" />
             <div>
               <div className="text-xl font-semibold">
-                ゾーホージャパン川根本
+                ゾーホージャパン川根本町オフィス
               </div>
               <div className="text-sm opacity-80">
                 地域と学びをつなぐコミュニティプログラム

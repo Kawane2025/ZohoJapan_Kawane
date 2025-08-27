@@ -56,9 +56,13 @@ export default function EventsUnified() {
   return (
     <section id="events" className="section py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h3 className="text-3xl font-extrabold text-center mb-6 text-red-500">
+        {/* <h3 className="text-3xl font-extrabold text-center mb-6 text-red-500">
           {t("events_title")}
-        </h3>
+        </h3> */}
+<h3 className="text-5xl font-extrabold text-center mb-6 text-white drop-shadow">
+  {t('events_title')}
+</h3>
+
 
         {loading ? (
           <div className="flex items-center justify-center py-16">
